@@ -25,5 +25,7 @@ function checkInputs(event) {
   } else {
     console.log("tous les champs sont complets");
     errorMsg.style.display = "none";
+    const commentList = document.getElementById("comment-list");
+    console.log("commentList");
   }
 }
