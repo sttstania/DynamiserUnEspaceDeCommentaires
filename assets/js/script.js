@@ -1,13 +1,11 @@
-console.log("Hello! script chargé");
-
 const myForm = document.querySelector("form");
-console.log("variable myForm:", myForm);
+console.log("variable myForm", myForm);
 
 myForm.addEventListener("submit", checkInputs);
 
 function checkInputs(event) {
   event.preventDefault();
-  event.sopPropagation();
+  event.stopPropagation();
 
   let inputFirstName = document.querySelector("#first-name").value.trim();
   console.log("inputFirstName contien:", inputFirstName);
@@ -21,7 +19,11 @@ function checkInputs(event) {
   if ((inputFirstName || inputLastName || inputmessage) === "") {
     //add comment
     console.log("Un champ est vide");
+
     console.log(errorMsg);
+    errorMsg.style.display = "block";
+  } else {
+    console.log("tous les champs sont complets");
     errorMsg.style.display = "none";
   }
 }
