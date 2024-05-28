@@ -18,14 +18,30 @@ function checkInputs(event) {
 
   if ((inputFirstName || inputLastName || inputmessage) === "") {
     //add comment
-    console.log("Un champ est vide");
+    //console.log("Un champ est vide");
 
-    console.log(errorMsg);
+    //console.log(errorMsg);
     errorMsg.style.display = "block";
   } else {
     console.log("tous les champs sont complets");
     errorMsg.style.display = "none";
     const commentList = document.getElementById("comment-list");
     console.log("commentList");
+
+    const totalCommentList = commentList.children.length;
+    const toCopy = commentList.children[totalCommentList - 1];
+    console.log(toCopy);
+
+    const newComment = toCopy.cloneNode(true);
+    console.log(newComment);
+
+    const title = newComment.querySelector("h3");
+    const text = newComment.querySelector("p");
+
+    title.innerHTML = inputFirstName + " " + inputLastName;
+    text.innerHTML = inputmessage;
+
+    console.log(newComment);
+    commentList.append(newComment);
   }
 }
