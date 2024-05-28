@@ -13,14 +13,14 @@ function checkInputs(event) {
   console.log("inputLastName contien:", inputLastName);
   let inputmessage = document.querySelector("#message").value.trim();
   console.log("inputmessage contien:", inputmessage);
-
   const errorMsg = document.getElementById("error-message");
 
-  if ((inputFirstName || inputLastName || inputmessage) === "") {
+  if (inputFirstName === "" || inputLastName === "" || inputmessage === "") {
     //add comment
-    //console.log("Un champ est vide");
+    console.log("Un champ est vide");
+    const errorMsg = document.getElementById("error-message");
 
-    //console.log(errorMsg);
+    console.log(errorMsg);
     errorMsg.style.display = "block";
   } else {
     console.log("tous les champs sont complets");
@@ -43,5 +43,7 @@ function checkInputs(event) {
 
     console.log(newComment);
     commentList.append(newComment);
+
+    myForm.reset();
   }
 }
